@@ -1,12 +1,13 @@
 name: Build wheels
 
 #on: [push, pull_request]
-on: workflow_dispatch
-  inputs:
-    sdist:
-      type: boolean
-    wheels:
-      type: boolean
+on:
+  workflow_dispatch:
+    inputs:
+      sdist:
+        type: boolean
+      wheels:
+        type: boolean
 
 jobs:
 
