@@ -6,6 +6,7 @@ on: workflow_dispatch
 jobs:
 
   build_sdist:
+    if: inputs.BUILD_SDIST == '1'
     name: Build sdist
     runs-on: ubuntu-latest
     steps:
@@ -24,6 +25,8 @@ jobs:
 
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
+    #if: inputs.BUILD_WHEELS == '1'
+    if: '0' == '1'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
