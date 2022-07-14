@@ -75,7 +75,9 @@ jobs:
             # aarch64.
             #
             #CIBW_ARCHS_LINUX: auto aarch64
-            CIBW_ARCHS_LINUX: "${{ fromJSON( '{"false": "auto", "true": "auto aarch64"}')[ inputs.wheels_linux_aarch64] }}"
+            # https://github.community/t/possible-to-use-conditional-in-the-env-section-of-a-job/135170
+            #
+            CIBW_ARCHS_LINUX: ${{ fromJSON( '{"false": "auto", "true": "auto aarch64"}')[ inputs.wheels_linux_aarch64] }}
 
             # For testing, build for single python version.
             #
